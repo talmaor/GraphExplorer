@@ -21,7 +21,9 @@
     "bootstrap": ">=4.1.2",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "3.0.0",
-    "json-formatter-js": "^2.2.0"
+    "json-formatter-js": "^2.2.0",
+    "popper.js": "^1.14.7",
+    "ajv": "6.9.1"
   },
   "devDependencies": {
     "@types/node": "^6.0.45",
@@ -32,7 +34,7 @@
     "css": "^2.2.1",
     "css-loader": "^0.25.0",
     "expose-loader": "^0.7.1",
-    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
@@ -41,9 +43,9 @@
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.5",
     "ts-loader": "^0.8.2",
-    "typescript": "2.2.1",
+    "typescript": "3.5.1",
     "url-loader": "^0.5.7",
-    "webpack": "4.20.2",
+    "webpack": "^2.0.0",
     "webpack-hot-middleware": "^2.10.0"
   },
   "aurelia": {

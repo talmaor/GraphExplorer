@@ -78,7 +78,19 @@ export class Settings
             {
                 springLength: 100
             },
-            solver: 'forceAtlas2Based'
+            solver: "forceAtlas2Based"
+        },
+        hierarchicalRepulsion:
+        {
+            hierarchicalRepulsion:
+            {
+                centralGravity: 0.0,
+                springLength: 100,
+                springConstant: 0.01,
+                nodeDistance: 120,
+                damping: 0.09
+            },
+            solver: "hierarchicalRepulsion"
         }
     }
 

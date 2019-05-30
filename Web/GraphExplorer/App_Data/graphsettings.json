@@ -74,6 +74,128 @@
       "physicsSolver": "forceAtlas2Based",
       "edgeColors": {}
     },
-    "showEdgeLabel": false
+    "showEdgeLabel": true
+  },
+  "Entities": {
+    "iconGroups": {
+      "Organization": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#525252"
+        }
+      },
+      "Agreement": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#006837"
+        }
+      },
+      "AssetPosition": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#006837"
+        }
+      },
+      "EnterpriseSubscription": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#1964bc"
+        }
+      },
+      "Tenant": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#1964bc"
+        }
+      },
+      "EnterpriseOffer": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#1964bc"
+        }
+      },
+      "ServicePlan": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 25,
+          "color": "#1964bc"
+        }
+      },
+      "Computer": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "h",
+          "size": 25,
+          "color": "Turquoise"
+        }
+      },
+      "DirectoryRole": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "u",
+          "size": 25,
+          "color": "Orange"
+        }
+      },
+      "Group": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "u",
+          "size": 25,
+          "color": "crimson"
+        }
+      },
+      "User": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "3",
+          "size": 25,
+          "color": "cornflowerblue"
+        }
+      },
+      "Application": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "6",
+          "size": 25,
+          "color": "black"
+        }
+      }
+    },
+    "options": {
+      "nodeSize": 25,
+      "edgeSize": 1,
+      "iconSize": 25,
+      "defaultNodeShape": "box",
+      "labelMappings": {},
+      "physicsSolver": "hierarchicalRepulsion",
+      "edgeColors": {}
+    },
+    "showEdgeLabel": true
   }
 }
