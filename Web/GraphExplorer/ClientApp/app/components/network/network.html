@@ -1,3 +1,4 @@
+
 <template>
     <require from="./network.css"></require>
     <require from="../modal/modal.html"></require>
@@ -58,7 +59,10 @@
         <floating class="configuration" if.bind="showConfiguration && selector == selectorTypes.None">
             <button class="icon icon-close" click.delegate="showConfiguration = false"></button>
 
-            <h3>Configure graph</h3>            
+            <h3>Configure graph</h3>
+
+            <input type="text" value.bind="selectedEdgeId" change.delegate="edgeId(selectedEdgeId)">
+
             <div class="actionControl">
                 <label>Default Node shape</label>
                 <select value.bind="selectedShape" change.delegate="shapeChange()">
@@ -74,15 +78,16 @@
             </div>
 
             <div class="actionControl">
-                <label>Node size (${nodeSize})
+                <label>
+                    Node size (${nodeSize})
                     <span if.bind="sizableShapes.indexOf(selectedShape) == -1" data-tooltip="Shape not resizable">
                         <span class="glyphicon glyphicon-warning-sign information"></span>
                     </span>
                 </label>
-                
+
                 <input disabled.bind="sizableShapes.indexOf(selectedShape) == -1" type="range" min="5" max="100" value.bind="nodeSize" change.delegate="sizeChange($event, 'nodes')" />
             </div>
-                
+
             <div class="actionControl">
                 <label>Edge size (${edgeSize})</label>
                 <input type="range" min="0" max="10" value.bind="edgeSize" step="0.25" change.delegate="sizeChange($event, 'edges')" />
@@ -92,17 +97,17 @@
                 <label>Icon size (${iconSize})</label>
                 <input type="range" min="5" max="100" value.bind="iconSize" step="5" change.delegate="sizeChange($event, 'icons')" />
             </div>
-            
+
             <div class="actionControl">
-                <input type="checkbox" checked.bind="showEdgeLabel" change.delegate="changeEdgeLabelVisibility()" id="showEdge"/>
+                <input type="checkbox" checked.bind="showEdgeLabel" change.delegate="changeEdgeLabelVisibility()" id="showEdge" />
                 <label for="showEdge">
                     Show Edges Labels
                     <span data-tooltip="Enabling this feature may significantly slow graph rendering">
                         <span class="glyphicon glyphicon-warning-sign warning"></span>
                     </span>
-                </label>                
+                </label>
             </div>
-            
+
             <button class="linkBtn ${SettingsMode === SettingsPanelMode.Node ? 'selected' : ''}" click.delegate="SettingsMode=SettingsPanelMode.Node">
                 <i class="icon icon-node"></i>Node settings
             </button>

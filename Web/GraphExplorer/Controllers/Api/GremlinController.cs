@@ -1,23 +1,26 @@
-﻿namespace GraphExplorer.Controllers
-{
-    using Microsoft.Azure.Graphs;
-    using Microsoft.Azure.Documents;
-    using System.Linq;
-    using System.Web.Http;
-    using GraphExplorer.Configuration;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Http;
+using GraphExplorer.Configuration;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Graphs;
+using Newtonsoft.Json.Linq;
 
+namespace GraphExplorer.Controllers
+{
     public class GremlinController : ApiController
     {
-        static DocDbConfig dbConfig = AppSettings.Instance.GetSection<DocDbConfig>("DocumentDBConfig");
+        private static DocDbConfig _dbConfig = AppSettings.Instance.GetSection<DocDbConfig>("DocumentDBConfig");
 
         [HttpGet]
         public async Task<dynamic> Get(string query, string collectionId)
         {
-            Database database = DocDbSettings.Client.CreateDatabaseQuery("SELECT * FROM d WHERE d.id = \"" + DocDbSettings.DatabaseId + "\"").AsEnumerable().FirstOrDefault();
-            List<DocumentCollection> collections = DocDbSettings.Client.CreateDocumentCollectionQuery(database.SelfLink).ToList();
-            DocumentCollection coll = collections.Where(x => x.Id == collectionId).FirstOrDefault();
+            Database database = DocDbSettings.Client
+                .CreateDatabaseQuery("SELECT * FROM d WHERE d.id = \"" + DocDbSettings.DatabaseId + "\"").AsEnumerable()
+                .FirstOrDefault();
+            var collections = DocDbSettings.Client.CreateDocumentCollectionQuery(database.SelfLink).ToList();
+            var coll = collections.FirstOrDefault(x => x.Id == collectionId);
 
             var tasks = new List<Task>();
             var results = new List<dynamic>();
@@ -25,28 +28,32 @@
 
             //split query on ; to allow for multiple queries
             foreach (var q in queries)
-            {
                 if (!string.IsNullOrEmpty(q))
                 {
                     var singleQuery = q.Trim();
 
-                    await ExecuteQuery(coll, singleQuery)
-                            .ContinueWith(
-                                (task) =>
-                                {
-                                    results.Add(new { queryText = singleQuery, queryResult = task.Result });
-                                }
-                            );
+                    foreach (var task in await ExecuteQuery(coll, singleQuery))
+                    {
+                        if (task["objects"] != null)
+                        {
+                            foreach (var innerTask in task["objects"])
+                            {
+                                results.Add(new { queryText = singleQuery, queryResult = innerTask});
+                            }
+
+                            continue;
+                        }
+
+                        results.Add(new {queryText = singleQuery, queryResult = task});
+                    }
                 }
-            }
 
             return results;
         }
 
-        private async Task<List<dynamic>> ExecuteQuery(DocumentCollection coll, string query)
+        private async Task<List<JToken>> ExecuteQuery(DocumentCollection coll, string query)
         {
-            var results = new List<dynamic>();
-
+            var results = new List<JToken>();
             var gremlinQuery = DocDbSettings.Client.CreateGremlinQuery(coll, query);
 
             while (gremlinQuery.HasMoreResults)
@@ -55,7 +62,7 @@
                 {
                     results.Add(result);
                 }
-            }
+            }   
 
             return results;
         }

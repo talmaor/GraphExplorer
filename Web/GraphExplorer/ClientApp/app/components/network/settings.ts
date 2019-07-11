@@ -76,7 +76,9 @@ export class Settings
         {
             forceAtlas2Based:
             {
-                springLength: 100
+                centralGravity: 0.0,
+                springLength: 100,
+                nodeDistance: 60
             },
             solver: "forceAtlas2Based"
         },

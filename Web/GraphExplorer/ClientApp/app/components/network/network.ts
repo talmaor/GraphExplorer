@@ -80,6 +80,7 @@ export class Network
     sizableShapes = Settings.sizableShapes;
     selectedShape = this.shapes[0];
     selectedPhysics = 'forceAtlas2Based';
+    selectedEdgeId: string;
     selectedNodeType: string;
     selectedEdgeType: string;
     selectedQueryId: string = null;
@@ -104,6 +105,7 @@ export class Network
 
     labelMappings: { [label: string]: string } = {};
     edgeColors: { [label: string]: string } = {};
+    edgeIdColors: { [id: string]: string } = {};
     selectedLabelProperty: string;
 
     nodes: any;
@@ -223,6 +225,18 @@ export class Network
         }
     }
 
+    edgeId(id)
+    {
+        let edges = this.edges.get({
+             filter: x => x.data.id === id
+        });
+        for (let edge of edges) {
+            edge["color"] = { color: "crimson" };
+        }
+
+        this.edges.update(edges);
+    }
+
     changeEdgeColor(type)
     {
         this.selectedEdgeType = type;
@@ -261,7 +275,7 @@ export class Network
 
     edgeColorSelected(edgeColor)
     {
-        let edges = this.edges.get({ filter: x => x.hiddenLabel == this.selectedEdgeType });
+        let edges = this.edges.get({ filter: x => x.hiddenLabel == this.selectedEdgeType});
         for (let edge of edges)
         {
             edge["color"] = { color: edgeColor };

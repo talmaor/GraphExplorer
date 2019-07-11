@@ -83,7 +83,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#525252"
         }
       },
@@ -92,7 +92,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#006837"
         }
       },
@@ -101,7 +101,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#006837"
         }
       },
@@ -110,7 +110,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#1964bc"
         }
       },
@@ -119,7 +119,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#1964bc"
         }
       },
@@ -128,7 +128,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#1964bc"
         }
       },
@@ -137,7 +137,7 @@
         "icon": {
           "face": "CommercialGraphIcons",
           "code": "",
-          "size": 25,
+          "size": 45,
           "color": "#1964bc"
         }
       },
@@ -146,7 +146,7 @@
         "icon": {
           "face": "Computer icons",
           "code": "h",
-          "size": 25,
+          "size": 45,
           "color": "Turquoise"
         }
       },
@@ -155,7 +155,7 @@
         "icon": {
           "face": "Computer icons",
           "code": "u",
-          "size": 25,
+          "size": 45,
           "color": "Orange"
         }
       },
@@ -164,8 +164,8 @@
         "icon": {
           "face": "Computer icons",
           "code": "u",
-          "size": 25,
-          "color": "crimson"
+          "size": 45,
+          "color": "Lime"
         }
       },
       "User": {
@@ -173,7 +173,7 @@
         "icon": {
           "face": "Computer icons",
           "code": "3",
-          "size": 25,
+          "size": 45,
           "color": "cornflowerblue"
         }
       },
@@ -182,19 +182,43 @@
         "icon": {
           "face": "Computer icons",
           "code": "6",
-          "size": 25,
+          "size": 45,
+          "color": "black"
+        }
+      },
+      "SensitiveAccount": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "Red"
+        }
+      },
+      "Account": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
           "color": "black"
         }
       }
     },
     "options": {
       "nodeSize": 25,
-      "edgeSize": 1,
-      "iconSize": 25,
+      "edgeSize": 0,
+      "iconSize": 45,
       "defaultNodeShape": "box",
-      "labelMappings": {},
+      "labelMappings": {
+        "Account": "pk"
+      },
       "physicsSolver": "hierarchicalRepulsion",
-      "edgeColors": {}
+      "edgeColors": {
+        "MemberOf": "LightGray",
+        "LoggedInBy": "LightGray",
+        "LocalAdministrator": "LightGray"
+      }
     },
     "showEdgeLabel": true
   }
