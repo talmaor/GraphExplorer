@@ -1,6 +1,7 @@
-﻿namespace GraphExplorer.Controllers.Api
+﻿using GraphExplorer.Configuration;
+
+namespace GraphExplorer.Controllers.Api
 {
-    using GraphExplorer.Configuration;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using System;

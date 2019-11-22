@@ -1,7 +1,7 @@
-﻿namespace GraphExplorer.Models
-{
-    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace GraphExplorer.Models
+{
     /// <summary>
     /// Graph Query Class
     /// </summary>

@@ -1,8 +1,8 @@
-﻿namespace GraphExplorer
-{
-    using System.Net.Http.Headers;
-    using System.Web.Http;
+﻿using System.Net.Http.Headers;
+using System.Web.Http;
 
+namespace GraphExplorer.GraphExplorer
+{
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

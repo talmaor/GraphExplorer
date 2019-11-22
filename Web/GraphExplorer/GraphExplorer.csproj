@@ -219,17 +219,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\GraphExplorer\Startup.Auth.cs" />
+    <Compile Include="App_Start\GraphExplorer\WebApiConfig.cs" />
     <Compile Include="Configuration\AppSettings.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\GraphExplorer\BundleConfig.cs" />
+    <Compile Include="App_Start\GraphExplorer\FilterConfig.cs" />
+    <Compile Include="App_Start\GraphExplorer\RouteConfig.cs" />
     <Compile Include="Configuration\DocDbConfig.cs" />
     <Compile Include="Configuration\DocDbSetup.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Utilities\FileSystemRepository.cs" />
-    <Compile Include="Utilities\IRepository.cs" />
+    <Compile Include="Controllers\Api\Utils\FileSystemRepository.cs" />
+    <Compile Include="Controllers\Api\Utils\IRepository.cs" />
     <Compile Include="Controllers\Api\CollectionController.cs" />
     <Compile Include="Controllers\Api\SettingsController.cs" />
     <Compile Include="Controllers\Api\QueryController.cs" />
@@ -238,8 +238,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GraphSettings.cs" />
-    <Compile Include="Models\GraphQuery.cs" />
+    <Compile Include="Models\GraphExplorer\GraphSettings.cs" />
+    <Compile Include="Models\GraphExplorer\GraphQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

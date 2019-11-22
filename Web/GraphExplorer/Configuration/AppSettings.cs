@@ -9,7 +9,7 @@
 	public sealed class AppSettings
 	{
 		private const string SETTINGS_FILE = "appsettings.json";
-		private dynamic _allSettings = null;
+		private readonly dynamic _allSettings = null;
 
 		private static readonly AppSettings _instance = new AppSettings();
 

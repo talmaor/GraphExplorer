@@ -1,7 +1,7 @@
-﻿namespace GraphExplorer.Utilities
-{
-    using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
+namespace GraphExplorer.Utils
+{
     interface IRepository<T>
     {
         Task<T> GetItemAsync(string collectionId);

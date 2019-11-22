@@ -213,7 +213,7 @@
       "labelMappings": {
         "Account": "pk"
       },
-      "physicsSolver": "hierarchicalRepulsion",
+      "physicsSolver": "forceAtlas2Based",
       "edgeColors": {
         "MemberOf": "LightGray",
         "LoggedInBy": "LightGray",

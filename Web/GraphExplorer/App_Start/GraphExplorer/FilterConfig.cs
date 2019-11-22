@@ -1,8 +1,8 @@
-﻿namespace GraphExplorer
-{
-    using System.Configuration;
-    using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 
+namespace GraphExplorer.GraphExplorer
+{
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)

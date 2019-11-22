@@ -1,18 +1,18 @@
-﻿namespace GraphExplorer.Utilities
-{
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
+namespace GraphExplorer.Utils
+{
     public class FileSystemRepository<T> : IRepository<T>
     {
-        private string _fullFilePath = string.Empty;
-        private string _defaultItem = "__defaultItem";
+        private readonly string _fullFilePath = string.Empty;
+        private readonly string _defaultItem = "__defaultItem";
 
         Dictionary<string, T> _allItems;
-        private object _theLock = new object();
+        private readonly object _theLock = new object();
 
         public FileSystemRepository(string filename)
         {
@@ -22,8 +22,7 @@
 
         public async Task<T> GetItemAsync(string collectionId)
         {
-            T item;
-            if(!_allItems.TryGetValue(collectionId, out item))
+            if(!_allItems.TryGetValue(collectionId, out var item))
             {
                 //create a new T and put default items in it
                 await CreateOrUpdateItemAsync(_allItems[_defaultItem], collectionId);

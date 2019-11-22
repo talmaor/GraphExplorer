@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens;
 using Microsoft.Owin.Security.ActiveDirectory;
 using Owin;
 
-namespace GraphExplorer.GraphExplorer
+namespace GraphExplorer
 {
     public partial class Startup
     {

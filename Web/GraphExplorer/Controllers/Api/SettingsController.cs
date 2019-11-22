@@ -1,9 +1,10 @@
-﻿namespace GraphExplorer.Controllers
+﻿using GraphExplorer.Models;
+using GraphExplorer.Utils;
+
+namespace GraphExplorer.Controllers
 {
-    using GraphExplorer.Models;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Utilities;
 
     public class SettingsController : ApiController
     {

@@ -1,7 +1,8 @@
-﻿namespace GraphExplorer.Controllers
+﻿using GraphExplorer.Models;
+using GraphExplorer.Utils;
+
+namespace GraphExplorer.Controllers
 {
-    using GraphExplorer.Models;
-    using GraphExplorer.Utilities;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;

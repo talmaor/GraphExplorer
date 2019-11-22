@@ -1,11 +1,12 @@
-﻿namespace GraphExplorer
+﻿using GraphExplorer.Configuration;
+using GraphExplorer.GraphExplorer;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace GraphExplorer
 {
-    using GraphExplorer.Configuration;
-    using GraphExplorer.Utilities;
-    using System.Web.Http;
-    using System.Web.Mvc;
-    using System.Web.Optimization;
-    using System.Web.Routing;
 
     public class MvcApplication : System.Web.HttpApplication
     {
