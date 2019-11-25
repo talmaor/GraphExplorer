@@ -66,7 +66,9 @@ export class Settings
     {
         default:
         {
-            //barnesHut with some default settings is VisJs setting
+            barnesHut: { gravitationalConstant: -30000 },
+            stabilization: { iterations: 2500 },
+            solver: "barnesHut"
         },
         repulsion:
         {

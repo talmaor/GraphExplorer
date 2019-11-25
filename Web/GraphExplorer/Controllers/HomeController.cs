@@ -1,5 +1,6 @@
 ﻿namespace GraphExplorer.Controllers
 {
+    using GraphExplorer.Configuration;
     using System.Web.Mvc;
 
     [AllowAnonymous]
@@ -7,6 +8,12 @@
     {
         public ActionResult Index()
         {
+            if (Request.QueryString["tenantId"] != null)
+            {
+                var tenantId = Request.QueryString["tenantId"];
+                DocDbSettings.DatabaseId = tenantId;
+            }
+
             return View();
         }
 

@@ -27,15 +27,8 @@
         <fieldset class="floatLeft">
             <button class="blackBtn" type="submit" disabled.bind="!query || loading">Execute</button>
         </fieldset>
-        <fieldset class="selectWrapper floatRight">
-            <select value.bind="selectedCollection" change.delegate="collectionChange()" id="collectionCombo">
-                <option repeat.for="col of collections" model.bind="col">${col}</option>
-            </select>
-            <div class="newCollectionWrapper"><a href="#" click.delegate="modal = modalTypes.AddCollection">New Collection</a></div>
-        </fieldset>
-
+       
         <div class="buttons">
-            <button class="linkBtn" click.delegate="theGuide.expand()" show.bind="!theGuide.IsVisible">Show Guide</button>
             <button ref="showConsoleButton" class="linkBtn" click.delegate="theConsole.expand()" show.bind="!theConsole.IsVisible">Show Console</button>
         </div>
     </form>
@@ -257,22 +250,6 @@
                     <button class="cancelButton" click.delegate="modal = modalTypes.None">Cancel</button>
                 </div>
                 </form>
-        </modal>
-
-
-        <modal id="addCollection" if.bind="modal == modalTypes.AddCollection">
-            <form submit.delegate="addCollection()">
-                <button class="icon icon-close" click.delegate="modal = modalTypes.None"></button>
-                <h2>New Collection</h2>
-
-                <label for="title">Title</label>
-                <input value.bind="collectionTitle" id="title" required />
-
-                <div class="buttonGroup">
-                    <button class="primaryButton" type="submit">Save</button>
-                    <button class="cancelButton" click.delegate="modal = modalTypes.None">Cancel</button>
-                </div>
-            </form>
         </modal>
 
         <div id="network" ref="networkContainer"></div>

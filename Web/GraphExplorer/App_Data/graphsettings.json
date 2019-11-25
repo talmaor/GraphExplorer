@@ -211,13 +211,17 @@
       "iconSize": 45,
       "defaultNodeShape": "box",
       "labelMappings": {
-        "Account": "pk"
+        "Account": "pk",
+        "User": "DisplayName",
+        "DirectoryRole": "DisplayName",
+        "Group": "DisplayName",
+        "Compputer": "DisplayName"
       },
-      "physicsSolver": "hierarchicalRepulsion",
+      "physicsSolver": "default",
       "edgeColors": {
-        "MemberOf": "LightGray",
-        "LoggedInBy": "LightGray",
-        "LocalAdministrator": "LightGray"
+        "MemberOf": "Gray",
+        "LoggedInBy": "Gray",
+        "LocalAdministrator": "Gray"
       }
     },
     "showEdgeLabel": true
