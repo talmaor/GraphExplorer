@@ -144,9 +144,8 @@ export class Network
                     {
                         this.theConsole.write(query.queryText);
 
-                        if (query.queryResult && query.queryResult.length)
-                        {
-                            this.theConsole.write(query.queryResult, false)
+                        if (query.queryResult && query.queryResult.length) {
+                            this.theConsole.write(query.queryResult, false);
                         }
                         else
                         {

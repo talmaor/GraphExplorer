@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -11,8 +12,6 @@ namespace GraphExplorer.Controllers
 {
     public class GremlinController : ApiController
     {
-        private static DocDbConfig _dbConfig = AppSettings.Instance.GetSection<DocDbConfig>("DocumentDBConfig");
-
         [HttpGet]
         public async Task<dynamic> Get(string query, string collectionId)
         {
@@ -48,7 +47,7 @@ namespace GraphExplorer.Controllers
                     }
                 }
 
-            return results;
+                return results;
         }
 
         private async Task<List<JToken>> ExecuteQuery(DocumentCollection coll, string query)
@@ -58,9 +57,17 @@ namespace GraphExplorer.Controllers
 
             while (gremlinQuery.HasMoreResults)
             {
-                foreach (var result in await gremlinQuery.ExecuteNextAsync())
+                try
                 {
-                    results.Add(result);
+                    foreach (var result in await gremlinQuery.ExecuteNextAsync())
+                    {
+                        results.Add(result);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
                 }
             }   
 
