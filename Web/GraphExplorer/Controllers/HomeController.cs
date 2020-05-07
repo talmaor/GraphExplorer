@@ -1,4 +1,10 @@
-﻿namespace GraphExplorer.Controllers
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
+using GraphExplorer.Utilities;
+
+namespace GraphExplorer.Controllers
 {
     using GraphExplorer.Configuration;
     using System.Web.Mvc;
@@ -8,26 +14,6 @@
     {
         public ActionResult Index()
         {
-            if (Request.QueryString["tenantId"] != null)
-            {
-                var tenantId = Request.QueryString["tenantId"];
-                DocDbSettings.DatabaseId = tenantId;
-            }
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

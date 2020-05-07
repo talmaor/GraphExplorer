@@ -15,6 +15,3 @@ namespace GraphExplorer.Configuration
         }
     }
 }
-  
-
-      

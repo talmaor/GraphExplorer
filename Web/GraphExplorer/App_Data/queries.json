@@ -46,6 +46,16 @@
       "id": "7",
       "title": "Get paths to domain admin group",
       "query": "g.V().has('label','User').repeat(outE().inV().simplepath()).until(has('DisplayName','COMPANY ADMINISTRATOR')).path()"
+    },
+    {
+      "id": "f1960924-1277-4e1d-a25f-538266e3ac0a",
+      "title": "ToResourceGroupOwnerThroughWindowsMachine",
+      "query": "g.V().has('DisplayName','SHILO').repeat(outE().inV().simplepath()).until(has('Name','Talma')).path()"
+    },
+    {
+      "id": "d2e65cd2-6598-4d82-9f8c-cd56e34ef98c",
+      "title": "test",
+      "query": "g.V().has('DisplayName','SHERLOCK HOLMES').repeat(outE().inV().simplepath()).until(has('Name','TALMA')).path()"
     }
   ]
 }

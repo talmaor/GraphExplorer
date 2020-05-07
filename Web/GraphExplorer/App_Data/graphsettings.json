@@ -203,6 +203,33 @@
           "size": 45,
           "color": "black"
         }
+      },
+      "subscription": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "Purple"
+        }
+      },
+      "resourceGroup": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "Green"
+        }
+      },
+      "resource": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "DarkRed"
+        }
       }
     },
     "options": {
@@ -216,9 +243,13 @@
         "DirectoryRole": "DisplayName",
         "Group": "DisplayName",
         "Compputer": "DisplayName",
-        "Application": "DisplayName"
+        "Application": "DisplayName",
+        "Domain": "DisplayName",
+        "resourceGroup": "Name",
+        "resource": "Name",
+        "subscription": "DisplayName"
       },
-      "physicsSolver": "default",
+      "physicsSolver": "repulsion",
       "edgeColors": {
         "MemberOf": "Gray",
         "LoggedInBy": "Gray",

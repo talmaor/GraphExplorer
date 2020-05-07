@@ -1,12 +1,12 @@
-﻿namespace GraphExplorer.Controllers
-{
-    using GraphExplorer.Models;
-    using GraphExplorer.Utilities;
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using System.Web.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.Http;
+using GraphExplorer.Models;
+using GraphExplorer.Utilities;
 
+namespace GraphExplorer.Controllers.Api
+{
     public class QueryController : ApiController
     {
         private FileSystemRepository<List<GraphQuery>> queryRepo = new FileSystemRepository<List<GraphQuery>>("queries.json");

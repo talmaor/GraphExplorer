@@ -7,6 +7,7 @@ import { Console } from '../console/console';
 import { Guide } from '../guide/guide';
 import { viewEngineHooks } from 'aurelia-templating';
 
+
 declare var vis: any;
 
 interface SavedQuery
@@ -84,6 +85,8 @@ export class Network
     selectedNodeType: string;
     selectedEdgeType: string;
     selectedQueryId: string = null;
+    userName: string = null;
+    tenantId: string = null;
     selectedNodeIcon : string = null;
     selectedNodeIconFont: string = null;
     selectedNodeColor: string = null;
@@ -115,6 +118,8 @@ export class Network
     {
         this.http = http;
         this.getCollections();
+        this.getUserName();
+        this.getTenant()
 
         eventAggregator.subscribe('consoleupdate', response =>
         {
@@ -182,6 +187,34 @@ export class Network
         this.refreshEdgeTypeSettings(true);
         this.SettingsMode = SettingsPanelMode.Node;
         this.showConfiguration = true;
+    }
+
+    logOut() {
+        window.open('Account/SignOut', "_blank");
+    }
+
+    getData() {
+        window.open('https://azureadlateralmovement.azurewebsites.net/Home/AzureADLateralMovement', "_blank");
+    }
+
+    getUserName() {
+        this.http.fetch("user")
+            .then((response: any) => { return this.handleErrors(response); })
+            .then(data => data.json())
+            .then(_ => {
+                console.log(_);
+                this.userName = _;
+            });
+    }
+
+    getTenant() {
+        this.http.fetch("tenant")
+            .then((response: any) => { return this.handleErrors(response); })
+            .then(data => data.json())
+            .then(_ => {
+                console.log(_);
+                this.tenantId = _;
+            });
     }
 
     shapeChange()

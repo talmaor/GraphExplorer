@@ -7,7 +7,14 @@
     <require from="../guide/guide"></require>
     <require from="../json-formatter/json-formatter"></require>
 
-    <form class="queryControl" submit.delegate="executeQuery()">
+    <div class="queryControl">
+        <div>${userName}</div>
+        <div>${tenantId}</div>
+        <button class="blackBtn" click.delegate="getData()">Get Data</button>
+        <button class="blackBtn" click.delegate="logOut()">Logout</button>
+    </div>
+
+<form class="queryControl" submit.delegate="executeQuery()">
         <fieldset class="inputWrapper floatLeft">
             <div>
                 <input class="query" type="text" value.bind="query" placeholder="gremlin >" required>        
@@ -33,7 +40,7 @@
         </div>
     </form>
 
-	<console view-model.ref="theConsole"></console>
+<console view-model.ref="theConsole"></console>
 	<guide view-model.ref="theGuide"></guide>
 
     <div id="graphWorkspace">

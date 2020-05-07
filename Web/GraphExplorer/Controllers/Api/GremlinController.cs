@@ -8,20 +8,43 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.Graphs;
 using Newtonsoft.Json.Linq;
 
-namespace GraphExplorer.Controllers
+namespace GraphExplorer.Controllers.Api
 {
     public class GremlinController : ApiController
     {
+        [Route("tenant")]
         [HttpGet]
+        [Authorize]
+        public async Task<dynamic> CurrentTenant()
+        {
+            return Utilities.Utilities.GetCurrentUserTenant(User);
+        }
+
+        [Route("user")]
+        [HttpGet]
+        [Authorize]
+        public async Task<dynamic> CurrentUser()
+        {
+            return Utilities.Utilities.GetCurrentUserName(User);
+        }
+
+        [HttpGet]
+        [Authorize]
         public async Task<dynamic> Get(string query, string collectionId)
         {
-            Database database = DocDbSettings.Client
-                .CreateDatabaseQuery("SELECT * FROM d WHERE d.id = \"" + DocDbSettings.DatabaseId + "\"").AsEnumerable()
-                .FirstOrDefault();
-            var collections = DocDbSettings.Client.CreateDocumentCollectionQuery(database.SelfLink).ToList();
-            var coll = collections.FirstOrDefault(x => x.Id == collectionId);
+            Database database = DocDbSettings.Client.
+                CreateDatabaseQuery(sqlExpression: $"SELECT * FROM d WHERE d.id = \"{Utilities.Utilities.GetCurrentUserTenant(User)}\"").
+                AsEnumerable()?.
+                FirstOrDefault();
 
-            var tasks = new List<Task>();
+            if (database == null)
+            {
+                throw new Exception("Still missing data for this tenant");
+            }
+
+            var collections = DocDbSettings.Client.CreateDocumentCollectionQuery(database.SelfLink).ToList();
+            var coll = collections.FirstOrDefault(_ => _.Id == collectionId);
+
             var results = new List<dynamic>();
             var queries = query.Split(';');
 
@@ -47,7 +70,7 @@ namespace GraphExplorer.Controllers
                     }
                 }
 
-                return results;
+            return results;
         }
 
         private async Task<List<JToken>> ExecuteQuery(DocumentCollection coll, string query)
