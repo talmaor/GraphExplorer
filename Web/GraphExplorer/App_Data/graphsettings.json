@@ -150,6 +150,15 @@
           "color": "Turquoise"
         }
       },
+      "Device": {
+        "shape": "icon",
+        "icon": {
+          "face": "Computer icons",
+          "code": "h",
+          "size": 45,
+          "color": "Turquoise"
+        }
+      },
       "DirectoryRole": {
         "shape": "icon",
         "icon": {
@@ -165,7 +174,7 @@
           "face": "Computer icons",
           "code": "u",
           "size": 45,
-          "color": "Lime"
+          "color": "LightPink"
         }
       },
       "User": {
@@ -230,6 +239,42 @@
           "size": 45,
           "color": "DarkRed"
         }
+      },
+      "Subscription": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "cornflowerblue"
+        }
+      },
+      "ResourceGroup": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "Green"
+        }
+      },
+      "Resource": {
+        "shape": "icon",
+        "icon": {
+          "face": "CommercialGraphIcons",
+          "code": "",
+          "size": 45,
+          "color": "Orange"
+        }
+      },
+      "Domain-DNS": {
+        "shape": "icon",
+        "icon": {
+          "face": "Glyphicons Halflings",
+          "code": "✉",
+          "size": 45,
+          "color": "Orange"
+        }
       }
     },
     "options": {
@@ -242,12 +287,19 @@
         "User": "DisplayName",
         "DirectoryRole": "DisplayName",
         "Group": "DisplayName",
-        "Compputer": "DisplayName",
+        "Computer": "DisplayName",
+        "Device": "DisplayName",
         "Application": "DisplayName",
         "Domain": "DisplayName",
         "resourceGroup": "Name",
         "resource": "Name",
-        "subscription": "DisplayName"
+        "subscription": "DisplayName",
+        "Resource": "Name",
+        "ResourceGroup": "Name",
+        "Sensitive Person": "DisplayName",
+        "Sensitive Group": "DisplayName",
+        "Sensitive Computer": "DisplayName",
+        "Sensitive User": "DisplayName"
       },
       "physicsSolver": "repulsion",
       "edgeColors": {

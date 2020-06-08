@@ -56,6 +56,11 @@
       "id": "d2e65cd2-6598-4d82-9f8c-cd56e34ef98c",
       "title": "test",
       "query": "g.V().has('DisplayName','SHERLOCK HOLMES').repeat(outE().inV().simplepath()).until(has('Name','TALMA')).path()"
+    },
+    {
+      "id": "486d22d1-a09e-4947-ab36-68b858482855",
+      "title": "AzureResources",
+      "query": "g.V().or(has(\"label\",\"resource\"), has(\"label\",\"resourceGroup\"), has(\"label\",\"subscription\"),has(\"label\",\"User\") ); g.E()"
     }
   ]
 }
